@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bus Pass Management</title>
+  <link rel="stylesheet" href="bpms.css" />
+</head>
+<body>
+  <header>
+    <h1>Bus Pass Management</h1>
+    <nav>
+      <ul>
+        <li><a href="create-pass.html">Create Bus Pass</a></li>
+        <li><a href="book-ticket.html">Book Ticket</a></li>
+        <li><a href="station-location.html">Bus Station Location</a></li>
+        <li><a href="distance.html">Distance Between Stations</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Bus Pass Form</h2>
+
+      <form id="bus-pass-form">
+        <label for="form-type">Select Option:</label>
+        <select id="form-type" required>
+          <option value="" disabled selected>Choose Action</option>
+          <option value="create">Create Pass</option>
+          <option value="renew">Renew Pass</option>
+        </select>
+
+        <div id="create-fields" style="display: none;">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" />
+
+          <label for="create-duration">Pass Duration (days):</label>
+          <input type="number" id="create-duration" name="create-duration" />
+        </div>
+
+        <div id="renew-fields" style="display: none;">
+          <label for="pass-id">Pass ID:</label>
+          <input type="text" id="pass-id" name="pass-id" />
+
+          <label for="renew-duration">New Duration (days):</label>
+          <input type="number" id="renew-duration" name="renew-duration" />
+        </div>
+
+        <input type="submit" value="Proceed to Payment" />
+      </form>
+
+      <div id="qr-section" style="margin-top: 20px; display: none;">
+        <h3>Scan to Pay</h3>
+        <p>Total Amount: ₹<span id="amount-display"></span></p>
+        <div id="qrcode"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Bus Management System 2025</p>
+  </footer>
+
+  <!-- QR Code generator -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script type="module" src="bus-pass.js"></script>
+</body>
+</html>

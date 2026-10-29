@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer Feedback</title>
+  <link rel="stylesheet" href="bpms.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      margin: 20px 0;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .feedback-section {
+      margin-top: 30px;
+    }
+
+    .feedback-item {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      background-color: #33bed0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .feedback-item h4 {
+      margin: 0 0 5px;
+      font-weight: bold;
+    }
+
+    .feedback-item small {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Customer Feedback</h1>
+
+  <form id="feedback-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Your Name" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Your Email" required />
+
+    <label for="feedback">Feedback:</label>
+    <textarea id="feedback" placeholder="Your Feedback..." required></textarea>
+
+    <button type="submit">Submit Feedback</button>
+  </form>
+
+  <div class="feedback-section" id="feedback-list">
+    <h2>Submitted Feedback</h2>
+    <!-- Feedback cards will appear here -->
+  </div>
+
+  <script>
+    const form = document.getElementById("feedback-form");
+    const feedbackList = document.getElementById("feedback-list");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("feedback").value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill out all fields.");
+        return;
+      }
+
+      // Create feedback card
+      const feedbackItem = document.createElement("div");
+      feedbackItem.className = "feedback-item";
+      feedbackItem.innerHTML = `
+        <h4>${name}</h4>
+        <small>${email}</small>
+        <p>${message}</p>
+      `;
+
+      feedbackList.appendChild(feedbackItem);
+
+      // Clear form
+      form.reset();
+    });
+  </script>
+</body>
+</html>

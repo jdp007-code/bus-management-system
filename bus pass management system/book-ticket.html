@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Ticket</title>
+  <link rel="stylesheet" href="bpms.css" />
+</head>
+<body>
+  <header>
+    <h1>Book Ticket</h1>
+    <nav>
+      <ul>
+        <li><a href="create-pass.html">Create Bus Pass</a></li>
+        <li><a href="station-location.html">Bus Station Location</a></li>
+        <li><a href="distance.html">Distance Between Stations</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Book your ticket</h2>
+
+    <form id="ticket-form">
+      <label for="name">Passenger Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="route">Route:</label>
+      <input type="text" id="route" name="route" required />
+
+      <label for="date">Travel Date:</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="passengers">Number of Passengers:</label>
+      <input type="number" id="passengers" name="passengers" required />
+
+      <label for="payment-method">Payment Method:</label>
+      <select id="payment-method" name="payment-method" required>
+        <option value="">Select Method</option>
+        <option value="upi">UPI</option>
+        <option value="card">Credit/Debit Card</option>
+        <option value="netbanking">Net Banking</option>
+      </select>
+
+      <input type="submit" value="Book Ticket" />
+    </form>
+
+    <section id="ticket-card-container"></section>
+    <div id="qr-code"></div>
+  </main>
+
+  <footer>
+    <p>Bus Management System 2025</p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script type="module" src="book-ticket.js"></script>
+</body>
+</html>

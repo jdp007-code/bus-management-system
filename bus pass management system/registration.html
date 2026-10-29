@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Management System - Registration</title>
+    <link rel="stylesheet" href="bpms.css">
+</head>
+<body>
+
+<header>
+    <h1>Bus Management System - Registration</h1>
+</header>
+
+<main>
+    <section>
+        <h3>Register</h3>
+        <form id="registration-form">
+            <select id="user-role" required>
+                <option value="" disabled selected>Select Role</option>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+            <input type="text" id="full-name" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+    </section>
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
+<script src="firebase-config.js" type="module"></script>
+<script src="bpms.js" type="module"></script>
+
+</body>
+</html>
